@@ -1,0 +1,33 @@
+.shiny-text-output {
+  min-height: 30px;
+}
+
+.col-sm-12 {
+  background-color: #f9fcfc;
+}
+
+#hint {
+  color: #FF9966;
+}
+
+#answer {
+  text-align: center;
+}
+
+#sp {
+  background-color: lightgrey;
+  line-height: 5px;
+}
+
+h2 {
+  font-family: 'Comic Sans MS';
+  font-weight: lighter;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+body {
+  background-color: #66bcd1;
+  background-image: url(random-grey-variations.png); /* from https://www.transparenttextures.com/ */
+  background-repeat: repeat;
+}
