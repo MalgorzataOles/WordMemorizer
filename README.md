@@ -12,7 +12,7 @@ It was created with the goal of learning German words, but it can be easily be m
 ## Quick start
 
 ```r
-shiny::runGitHub(“MalgorzataOles/WordMemorizer”)
+shiny::runGitHub("MalgorzataOles/WordMemorizer")
 ```
 
 ## Format of the input file
