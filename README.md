@@ -7,7 +7,7 @@ WordMemorizer is a Shiny application which helps to memorize stuff. This stuff i
 * opposites
 * responses
 
-It was created with the goal of learning German words, but it can be easily be modified to serve any other purpose. Just run the app, load your input file with a dictionary that's it!
+It was created with the goal of learning German words, but it can be easily modified to serve any other purpose. Just run the app, load your input file with a dictionary that's it!
 
 ## Quick start
 
