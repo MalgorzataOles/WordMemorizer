@@ -36,9 +36,7 @@ shinyUI(fluidPage(
     column(3,
            tags$head(tags$script(src="enter.js"),
                      tags$link(rel="stylesheet", type="text/css", href="wm.style.css")),
-           fileInput("file", label = h3("File input")),
-           id="sidebar"),
-    column(9,
-           id="sidebar")
-  )
+           fileInput("file", label = h3("File input"))),
+    column(9),
+  id="sidebar")
 ))

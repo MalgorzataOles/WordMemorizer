@@ -1,9 +1,11 @@
-.shiny-text-output {
-  min-height: 30px;
-}
-
+/* quiz part */
 .col-sm-12 {
   background-color: #f9fcfc;
+}
+
+/* hint and question */
+.shiny-text-output {
+  min-height: 30px;
 }
 
 #hint {
@@ -16,18 +18,31 @@
 
 #sp {
   background-color: lightgrey;
-  line-height: 5px;
+  line-height: 2px;
+}
+
+#sidebar {
+  background-color: #6ea0bc;
+  
 }
 
 h2 {
-  font-family: 'Comic Sans MS';
-  font-weight: lighter;
   line-height: 1.5;
   color: #ffffff;
+  font-size: 28pt;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+h3 {
+  color: #ffffff;
+  font-size: 12pt;
 }
 
 body {
-  background-color: #66bcd1;
-  background-image: url(random-grey-variations.png); /* from https://www.transparenttextures.com/ */
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 14pt;
+  background-color: #0f6999;
+  background-image: url(fabric-plaid.png); /* from https://www.transparenttextures.com/ */
   background-repeat: repeat;
 }
