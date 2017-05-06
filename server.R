@@ -12,7 +12,7 @@ shinyServer(function(input, output, session) {
   # load the dictionary
   dict = reactive({
     file = if(is.null(input$file)) f else input$file$datapath
-    read.csv(req(file), header=TRUE, encoding="latin1")
+    read.csv(req(file), header=TRUE, encoding="utf-8")
   })
   
   rv = reactiveValues(reset=0)
