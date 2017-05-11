@@ -1,11 +1,7 @@
 library(shiny)
+source("library.R")
 
 options(stringsAsFactors=FALSE)
-
-# set the default dictionary
-f = "words/base.csv"
-if (!file.exists(f)) f = NA
-
 
 shinyServer(function(input, output, session) {
 
@@ -34,11 +30,13 @@ shinyServer(function(input, output, session) {
   
   # button action
   observeEvent(input$submit, {
+    
     if(rv$fin) { # reset quiz when finish reached
       rv$reset = rv$reset + 1
     } else { # go ahead with quiz
       i = rv$i
-      if(input$answer==dict()[rv$checklist[i], 2]) { # correct answer
+      correctAnswer = dict()[rv$checklist[i], 2]
+      if(input$answer==correctAnswer) { # correct answer
         if(rv$hint=="") # hint was not needed
           rv$checklist[i] = NA  # remove word from queue
         else
@@ -58,7 +56,7 @@ shinyServer(function(input, output, session) {
           }
         }
       } else { # incorrect answer, print hint
-        rv$hint = dict()[rv$checklist[i],2]
+        rv$hint = correctAnswer
       }
       if(finito) { # actions when quiz solved
         rv$question = ""
@@ -68,6 +66,7 @@ shinyServer(function(input, output, session) {
         rv$i = i
       }
       updateTextInput(session, "answer", value="") # reset user input
+      session$sendCustomMessage(type='speakme', correctAnswer)
   }})
   
   # activate or deactivate text field
@@ -77,6 +76,11 @@ shinyServer(function(input, output, session) {
   observe({
     quest = dict()[rv$checklist[rv$i],1]
     rv$question = ifelse(is.na(quest), "Well done!", quest)
+  })
+  
+  # dieable/anable language type depending on speak
+  observe({
+    shinyjs::toggleState("lang", input$speak==TRUE)
   })
 
 })

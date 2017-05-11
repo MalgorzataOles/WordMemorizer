@@ -1,6 +1,12 @@
 library(shiny)
+source("library.R")
 
 shinyUI(fluidPage(
+  
+  # include additional files
+  includeScript("www/speechSynthesis.js"),
+  includeScript("www/enter.js"),
+  includeCSS("www/wm.style.css"),
   shinyjs::useShinyjs(),
   
   titlePanel("Word Memorizer"),
@@ -34,9 +40,14 @@ shinyUI(fluidPage(
   # settings
   fluidRow(
     column(3,
-           tags$head(tags$script(src="enter.js"),
-                     tags$link(rel="stylesheet", type="text/css", href="wm.style.css")),
-           fileInput("file", label = h3("File input"))),
-    column(9),
+           h4("DICTIONARY"),
+           fileInput("file", label=NULL, placeholder=f)), #h3("File input")
+    column(3,
+           h4("SPEACH"),
+           checkboxInput("speak", label="speak", value=TRUE),
+           selectInput("lang", label=NULL, choices=c("de-DE","en-US","en-GB","es-ES","fr-FR","it-IT","ja-JP","ko-KR","pl-PL","zh-CN"), selected="de-DE", width="50%")),
+    column(6),
   id="sidebar")
 ))
+
+
